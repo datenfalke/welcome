@@ -2,7 +2,7 @@
 <info>
     <id>welcome</id>
     <name>Welcome</name>
-    <summary>Dashboard widget to display welcome content</summary>
+    <summary>Dashboard widget to display welcome content in multiple boxes</summary>
     <description><![CDATA[
 ℹ A Markdown rendering Dashboard widget to welcome all users.
 
