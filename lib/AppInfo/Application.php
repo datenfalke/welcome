@@ -1,13 +1,13 @@
 <?php
 /**
- * Nextcloud - Welcome
+ * Nextcloud - HtmlWidget
  *
  *
  * @author Julien Veyssier <eneiluj@posteo.net>
  * @copyright Julien Veyssier 2021
  */
 
-namespace OCA\Welcome\AppInfo;
+namespace OCA\HtmlWidget\AppInfo;
 
 use OCP\IContainer;
 use OCP\IUserSession;
@@ -18,15 +18,15 @@ use OCP\AppFramework\Bootstrap\IRegistrationContext;
 use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
 
-use OCA\Welcome\Dashboard\WelcomeWidget;
+use OCA\HtmlWidget\Dashboard\HtmlWidget;
 
 /**
  * Class Application
  *
- * @package OCA\Welcome\AppInfo
+ * @package OCA\HtmlWidget\AppInfo
  */
 class Application extends App implements IBootstrap {
-	public const APP_ID = 'welcome';
+	public const APP_ID = 'htmlwidget';
 
 	/**
 	 * Constructor
@@ -42,10 +42,7 @@ class Application extends App implements IBootstrap {
 	}
 
 	public function register(IRegistrationContext $context): void {
-		$filePath = $this->config->getAppValue(self::APP_ID, 'filePath', '');
-		if ($filePath) {
-			$context->registerDashboardWidget(WelcomeWidget::class);
-		}
+			$context->registerDashboardWidget(HtmlWidget::class);
 	}
 
 	public function boot(IBootContext $context): void {

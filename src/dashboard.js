@@ -1,7 +1,7 @@
 /* jshint esversion: 6 */
 
 /**
- * Nextcloud - welcome
+ * Nextcloud - HtmlWidget
  *
  *
  * This file is licensed under the Affero General Public License version 3 or
@@ -17,7 +17,7 @@ import Dashboard from './views/Dashboard'
 
 document.addEventListener('DOMContentLoaded', function() {
 
-	OCA.Dashboard.register('welcome', (el, { widget }) => {
+	OCA.Dashboard.register('htmlwidget', (el, { widget }) => {
 		const View = Vue.extend(Dashboard)
 		new View({
 			propsData: { title: widget.title },

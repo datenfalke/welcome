@@ -1,5 +1,5 @@
 <?php
-namespace OCA\Welcome\Settings;
+namespace OCA\HtmlWidget\Settings;
 
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\IRequest;
@@ -10,7 +10,7 @@ use OCP\Util;
 use OCP\IURLGenerator;
 use OCP\IInitialStateService;
 
-use OCA\Welcome\AppInfo\Application;
+use OCA\HtmlWidget\AppInfo\Application;
 
 class Admin implements ISettings {
 
@@ -40,20 +40,12 @@ class Admin implements ISettings {
 	 * @return TemplateResponse
 	 */
 	public function getForm(): TemplateResponse {
-		$filePath = $this->config->getAppValue(Application::APP_ID, 'filePath', '');
-		$userName = $this->config->getAppValue(Application::APP_ID, 'userName', '');
-		$userId = $this->config->getAppValue(Application::APP_ID, 'userId', '');
-		$supportUserId = $this->config->getAppValue(Application::APP_ID, 'supportUserId', '');
-		$supportUserName = $this->config->getAppValue(Application::APP_ID, 'supportUserName', '');
-		$supportText = $this->config->getAppValue(Application::APP_ID, 'supportText', '');
+		$widgetTitle = $this->config->getAppValue(Application::APP_ID, 'widgetTitle', '');
+		$contentHtml = $this->config->getAppValue(Application::APP_ID, 'contentHtml', '');
 
 		$adminConfig = [
-			'filePath' => $filePath,
-			'userName' => $userName,
-			'userId' => $userId,
-			'supportUserId' => $supportUserId,
-			'supportUserName' => $supportUserName,
-			'supportText' => $supportText,
+			'widgetTitle' => $widgetTitle,
+			'contentHtml' => $contentHtml,
 		];
 		$this->initialStateService->provideInitialState($this->appName, 'admin-config', $adminConfig);
 		return new TemplateResponse(Application::APP_ID, 'adminSettings');

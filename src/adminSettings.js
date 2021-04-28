@@ -1,7 +1,7 @@
 /* jshint esversion: 6 */
 
 /**
- * Nextcloud - welcome
+ * Nextcloud - HtmlWidget
  *
  *
  * This file is licensed under the Affero General Public License version 3 or
@@ -20,6 +20,6 @@ import AdminSettings from './components/AdminSettings'
 
 // eslint-disable-next-line
 new Vue({
-	el: '#welcome_prefs',
+	el: '#htmlwidget_prefs',
 	render: h => h(AdminSettings),
 })

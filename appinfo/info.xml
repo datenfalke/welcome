@@ -1,35 +1,25 @@
 <?xml version="1.0"?>
 <info>
-    <id>welcome</id>
-    <name>Welcome</name>
-    <summary>Dashboard widget to display welcome content in multiple boxes</summary>
+    <id>htmlwidget</id>
+    <name>HtmlWidget</name>
+    <summary>Dashboard widget to display HTML content</summary>
     <description><![CDATA[
-ℹ A Markdown rendering Dashboard widget to welcome all users.
-
-⚙ Configure via `Settings > Administration > Theming > Welcome widget`
-
-📄 Pick a Markdown document to be rendered in the widget
-
-💡 If no document is chosen, the widget won't be shown
-
-📝 Edit the Markdown document to update the widget in real-time
-
-🖼 Images are also supported
-
-💬 Configure a contact person to directly start a chat with (requires [Nextcloud Talk](https://apps.nextcloud.com/apps/spreed) to be installed)
+A HTML rendering Dashboard widget to welcome all users.
+⚙ Configure via `Settings > Administration > Theming > htmlbox widget`
+📄 Paste HTML-Code to be shown in the dashboard widget in the textinput field.
     ]]></description>
-    <version>0.0.6</version>
+    <version>0.0.7</version>
     <licence>agpl</licence>
     <author>Julien Veyssier</author>
-    <namespace>Welcome</namespace>
+    <author>Falco Kleinschmidt</author>
+    <namespace>HtmlWidget</namespace>
     <documentation>
-        <developer>https://github.com/eneiluj/welcome</developer>
+        <developer>https://github.com/datenfalke/welcome</developer>
     </documentation>
     <category>integration</category>
     <category>dashboard</category>
-    <website>https://github.com/eneiluj/welcome</website>
-    <bugs>https://github.com/eneiluj/welcome/issues</bugs>
-    <screenshot>https://github.com/eneiluj/welcome/raw/master/img/screenshot1.jpg</screenshot>
+    <website>https://github.com/datenfalke/welcome</website>
+    <bugs>https://github.com/datenfalke/welcome/issues</bugs>
     <dependencies>
         <database min-version="9.4">pgsql</database>
         <database>sqlite</database>
@@ -37,6 +27,6 @@
         <nextcloud min-version="20" max-version="22"/>
     </dependencies>
     <settings>
-        <admin>OCA\Welcome\Settings\Admin</admin>
+        <admin>OCA\HtmlWidget\Settings\Admin</admin>
     </settings>
 </info>

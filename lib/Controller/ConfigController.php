@@ -1,6 +1,6 @@
 <?php
 /**
- * Nextcloud - welcome
+ * Nextcloud - HtmlWidget
  *
  * This file is licensed under the Affero General Public License version 3 or
  * later. See the COPYING file.
@@ -9,7 +9,7 @@
  * @copyright Julien Veyssier 2020
  */
 
-namespace OCA\Welcome\Controller;
+namespace OCA\HtmlWidget\Controller;
 
 use OCP\Files\IAppData;
 use OCP\AppFramework\Http\DataDisplayResponse;
@@ -30,7 +30,7 @@ use OCP\IRequest;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\Controller;
 
-use OCA\Welcome\AppInfo\Application;
+use OCA\HtmlWidget\AppInfo\Application;
 
 class ConfigController extends Controller {
 
@@ -76,31 +76,11 @@ class ConfigController extends Controller {
 	 * @NoAdminRequired
 	 */
 	public function getWidgetContent(): DataResponse {
-		$filePath = $this->config->getAppValue(Application::APP_ID, 'filePath', '');
-		$userName = $this->config->getAppValue(Application::APP_ID, 'userName', '');
-		$userId = $this->config->getAppValue(Application::APP_ID, 'userId', '');
-		$supportUserName = $this->config->getAppValue(Application::APP_ID, 'supportUserName', '');
-		$supportUserId = $this->config->getAppValue(Application::APP_ID, 'supportUserId', '');
-		$supportText = $this->config->getAppValue(Application::APP_ID, 'supportText', '');
-
-		if ($filePath && $userName && $userId && $this->userManager->userExists($userId)) {
-			$userFolder = $this->root->getUserFolder($userId);
-			if ($userFolder->nodeExists($filePath)) {
-				$file = $userFolder->get($filePath);
-				if ($file->getType() === FileInfo::TYPE_FILE) {
-					$content = $file->getContent();
-					// prepend a new line to avoid having the first line interpreted as code...
-					return new DataResponse([
-						'content' => "\n" . trim($content),
-						'userId' => $userId,
-						'userName' => $userName,
-						'supportUserId' => $supportUserId,
-						'supportUserName' => $supportUserName,
-						'supportText' => $supportText,
-					]);
-				}
-			}
-		}
-		return new DataResponse('not found', 400);
+		$widgetTitle = $this->config->getAppValue(Application::APP_ID, 'widgetTitle', '');
+		$contentHtml = $this->config->getAppValue(Application::APP_ID, 'contentHtml', '');
+		return new DataResponse([
+			'widgetTitle' => $widgetTitle,
+			'contentHtml' => $contentHtml,
+		]);
 	}
 }

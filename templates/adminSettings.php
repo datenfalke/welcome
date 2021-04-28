@@ -1,6 +1,6 @@
 <?php
-$appId = OCA\Welcome\AppInfo\Application::APP_ID;
+$appId = OCA\HtmlWidget\AppInfo\Application::APP_ID;
 script($appId, $appId . '-adminSettings');
 ?>
 
-<div id="welcome_prefs"></div>
+<div id="htmlwidget_prefs"></div>

@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 0.0.7 – 2021-04-28
+### Changed
+- Widget shows HTML
+- Widget title can be set
+
+## 0.0.6
 ### Changed
 - bump js libs
 - improve release action
